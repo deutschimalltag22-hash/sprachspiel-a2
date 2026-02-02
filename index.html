@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sprachspiel A2 – Level freischalten</title>
+  <title>Sprachspiel B1 – Level freischalten</title>
   <style>
     :root{
       --burgund:#6e1f2b;
@@ -21,316 +21,158 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans";
       color:var(--ink);
       background: radial-gradient(1200px 700px at 20% 0%, #fff 0%, var(--sand) 45%, var(--sand2) 100%);
     }
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 18px 14px 42px;
-    }
+    .wrap{max-width:980px;margin:0 auto;padding:18px 14px 42px}
     header{
       background: linear-gradient(135deg, var(--burgund) 0%, var(--burgund2) 100%);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 18px 18px 14px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow:hidden;
+      color:#fff;border-radius:var(--radius);
+      padding:18px 18px 14px; box-shadow:var(--shadow);
+      position:relative; overflow:hidden;
     }
     header:before{
-      content:"";
-      position:absolute; inset:-60px -60px auto auto;
-      width:180px; height:180px;
-      background: rgba(255,255,255,.10);
-      border-radius: 50%;
-      transform: rotate(20deg);
+      content:""; position:absolute; inset:-60px -60px auto auto;
+      width:180px;height:180px;border-radius:50%;
+      background: rgba(255,255,255,.10); transform: rotate(20deg);
     }
-    h1{
-      margin:0 0 6px;
-      font-size: clamp(20px, 3.1vw, 30px);
-      letter-spacing:.2px;
-    }
-    .sub{
-      margin:0;
-      opacity:.92;
-      font-size: clamp(14px, 2.1vw, 16px);
-      line-height:1.35;
-    }
+    h1{margin:0 0 6px;font-size:clamp(20px,3.1vw,30px);letter-spacing:.2px}
+    .sub{margin:0;opacity:.92;font-size:clamp(14px,2.1vw,16px);line-height:1.35}
 
-    .toprow{
-      margin-top: 14px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:stretch;
-    }
+    .toprow{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:stretch}
     .pill{
-      flex: 1 1 240px;
-      background: rgba(255,255,255,.92);
-      border: 1px solid rgba(110,31,43,.15);
-      border-radius: var(--radius);
-      padding: 12px 14px;
+      flex:1 1 240px;background: rgba(255,255,255,.92);
+      border:1px solid rgba(110,31,43,.15);
+      border-radius:var(--radius); padding:12px 14px;
       box-shadow: 0 6px 18px rgba(0,0,0,.06);
-      min-height: 70px;
+      min-height:70px;
     }
     .pill b{color:var(--burgund)}
     .pill small{color:var(--muted)}
-    .row{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 14px;
-      margin-top: 14px;
-    }
-    @media (max-width: 880px){
-      .row{grid-template-columns: 1fr;}
-    }
+
+    .row{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}
+    @media (max-width:880px){.row{grid-template-columns:1fr}}
+
     .card{
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,.06);
+      background:var(--card); border-radius:var(--radius);
+      box-shadow:var(--shadow); border:1px solid rgba(0,0,0,.06);
       overflow:hidden;
     }
     .cardHead{
-      padding: 14px 16px 12px;
-      border-bottom: 1px solid rgba(0,0,0,.06);
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      justify-content:space-between;
+      padding:14px 16px 12px; border-bottom:1px solid rgba(0,0,0,.06);
+      display:flex; gap:10px; align-items:flex-start; justify-content:space-between;
     }
     .badge{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      padding: 8px 10px;
-      border-radius: 999px;
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;border-radius:999px;
       background: rgba(110,31,43,.08);
-      color: var(--burgund);
-      font-weight:700;
-      font-size: 13px;
-      white-space:nowrap;
+      color:var(--burgund); font-weight:800; font-size:13px; white-space:nowrap;
     }
-    .taskTitle{
-      margin:0 0 4px;
-      font-size: 18px;
-    }
-    .taskText{
-      margin:0;
-      color:#2a2a2a;
-      line-height:1.45;
-      font-size: 15px;
-    }
+    .taskTitle{margin:0 0 4px;font-size:18px}
+    .taskText{margin:0;color:#2a2a2a;line-height:1.45;font-size:15px}
     .taskText .taskLine{
-      display:block;
-      margin-top: 6px;
-      padding: 10px 12px;
-      border-radius: 14px;
+      display:block;margin-top:6px;padding:10px 12px;border-radius:14px;
       background: rgba(244,239,230,.75);
-      border: 1px dashed rgba(110,31,43,.25);
-      font-weight: 650;
+      border:1px dashed rgba(110,31,43,.25);
+      font-weight:700;
     }
 
-    .pad{padding: 14px 16px 16px;}
-    label{
-      display:block;
-      font-weight: 700;
-      margin: 0 0 8px;
-      color: var(--burgund);
-    }
+    .pad{padding:14px 16px 16px}
+    label{display:block;font-weight:800;margin:0 0 8px;color:var(--burgund)}
     textarea{
-      width:100%;
-      min-height: 92px;
-      resize: vertical;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.16);
-      outline: none;
-      font-size: 16px;
-      line-height: 1.35;
-      background: #fff;
+      width:100%; min-height:92px; resize:vertical;
+      padding:12px; border-radius:14px;
+      border:1px solid rgba(0,0,0,.16);
+      outline:none; font-size:16px; line-height:1.35; background:#fff;
     }
     textarea:focus{
       border-color: rgba(110,31,43,.55);
       box-shadow: 0 0 0 4px rgba(110,31,43,.12);
     }
 
-    .btnRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 12px;
-    }
+    .btnRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     button{
-      border:0;
-      cursor:pointer;
-      padding: 12px 14px;
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 15px;
-      letter-spacing: .2px;
+      border:0; cursor:pointer; padding:12px 14px; border-radius:14px;
+      font-weight:900; font-size:15px; letter-spacing:.2px;
       transition: transform .05s ease, filter .15s ease, opacity .15s ease;
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      justify-content:center;
+      display:inline-flex; gap:10px; align-items:center; justify-content:center;
       user-select:none;
     }
     button:active{transform: translateY(1px)}
-    .primary{
-      background: linear-gradient(135deg, var(--burgund) 0%, var(--burgund2) 100%);
-      color:#fff;
-    }
+    .primary{background: linear-gradient(135deg,var(--burgund) 0%,var(--burgund2) 100%); color:#fff}
     .ghost{
-      background: rgba(110,31,43,.08);
-      color: var(--burgund);
-      border: 1px solid rgba(110,31,43,.18);
+      background: rgba(110,31,43,.08); color:var(--burgund);
+      border:1px solid rgba(110,31,43,.18);
     }
-    .next{
-      background: linear-gradient(135deg, #1f8a4c 0%, #167a41 100%);
-      color:#fff;
-    }
-    .next:disabled{
-      opacity: .45;
-      cursor: not-allowed;
-      filter:saturate(.7);
-    }
+    .next{background: linear-gradient(135deg,#1f8a4c 0%,#167a41 100%); color:#fff}
+    .next:disabled{opacity:.45; cursor:not-allowed; filter:saturate(.7)}
 
     .status{
-      margin-top: 12px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: #fafafa;
-      line-height: 1.35;
-      font-size: 15px;
+      margin-top:12px; padding:12px; border-radius:14px;
+      border:1px solid rgba(0,0,0,.10); background:#fafafa;
+      line-height:1.35; font-size:15px;
     }
     .status.ok{
       border-color: rgba(31,138,76,.35);
       background: rgba(31,138,76,.10);
-      color: #0f5b30;
-      font-weight: 750;
+      color:#0f5b30; font-weight:850;
     }
     .status.bad{
       border-color: rgba(180,35,42,.35);
       background: rgba(180,35,42,.10);
-      color: #7d151a;
-      font-weight: 750;
+      color:#7d151a; font-weight:850;
     }
 
-    .progressWrap{
-      margin-top: 10px;
-    }
+    .progressWrap{margin-top:10px}
     .progressLabel{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      display:flex; justify-content:space-between; align-items:center;
       color: rgba(255,255,255,.92);
-      font-weight: 750;
-      font-size: 13px;
-      margin-top: 10px;
+      font-weight:800; font-size:13px; margin-top:10px;
     }
     .bar{
-      height: 12px;
-      background: rgba(255,255,255,.22);
-      border-radius: 999px;
-      overflow:hidden;
-      margin-top: 6px;
-      border: 1px solid rgba(255,255,255,.20);
+      height:12px; background: rgba(255,255,255,.22);
+      border-radius:999px; overflow:hidden; margin-top:6px;
+      border:1px solid rgba(255,255,255,.20);
     }
     .bar > div{
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.85) 60%, rgba(255,255,255,.95) 100%);
-      border-radius: 999px;
-      transition: width .35s ease;
+      height:100%; width:0%;
+      background: linear-gradient(90deg,#fff 0%,rgba(255,255,255,.85) 60%,rgba(255,255,255,.95) 100%);
+      border-radius:999px; transition: width .35s ease;
     }
 
-    /* Map */
-    .map{
-      padding: 14px 14px 16px;
-    }
-    .map h2{
-      margin: 0 0 10px;
-      font-size: 16px;
-      color: var(--burgund);
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap:10px;
-    }
-    @media (max-width: 520px){
-      .grid{grid-template-columns: repeat(4, 1fr);}
-    }
+    .map{padding:14px 14px 16px}
+    .map h2{margin:0 0 10px;font-size:16px;color:var(--burgund)}
+    .grid{display:grid;grid-template-columns: repeat(5, 1fr);gap:10px}
+    @media (max-width:520px){.grid{grid-template-columns: repeat(4, 1fr)}}
     .roomBtn{
-      width:100%;
-      padding: 10px 8px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,0,0,.10);
+      width:100%; padding:10px 8px; border-radius:16px;
+      border:1px solid rgba(0,0,0,.10);
       background: rgba(244,239,230,.8);
-      color: #3b3b3b;
-      font-weight: 850;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      align-items:center;
-      justify-content:center;
-      min-height: 72px;
+      color:#3b3b3b; font-weight:900;
+      display:flex; flex-direction:column; gap:6px;
+      align-items:center; justify-content:center;
+      min-height:72px;
       box-shadow: 0 8px 18px rgba(0,0,0,.06);
     }
-    .roomBtn .ico{font-size: 22px; line-height: 1}
-    .roomBtn.locked{
-      opacity:.50;
-      cursor:not-allowed;
-      filter:grayscale(.2);
-    }
-    .roomBtn.current{
-      outline: 4px solid rgba(110,31,43,.16);
-      border-color: rgba(110,31,43,.35);
-    }
+    .roomBtn .ico{font-size:22px;line-height:1}
+    .roomBtn.locked{opacity:.50;cursor:not-allowed;filter:grayscale(.2)}
+    .roomBtn.current{outline:4px solid rgba(110,31,43,.16);border-color: rgba(110,31,43,.35)}
 
-    .mini{
-      margin-top: 10px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .toggle{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      user-select:none;
-    }
-    .toggle input{transform: scale(1.1);}
-    .footerNote{
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height:1.35;
-    }
+    .mini{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;color:var(--muted);font-size:13px}
+    .toggle{display:flex;align-items:center;gap:8px;user-select:none}
+    .toggle input{transform: scale(1.1)}
+    .footerNote{margin-top:12px;color:var(--muted);font-size:13px;line-height:1.35}
 
-    /* Tiny celebration */
-    .pop{
-      animation: pop .20s ease;
-    }
-    @keyframes pop{
-      from{transform: scale(.98); filter:brightness(.98)}
-      to{transform: scale(1); filter:brightness(1)}
-    }
+    .pop{animation: pop .20s ease}
+    @keyframes pop{from{transform:scale(.98);filter:brightness(.98)}to{transform:scale(1);filter:brightness(1)}}
   </style>
 </head>
 
 <body>
   <div class="wrap">
     <header>
-      <h1>Sprachspiel A2 – Level freischalten</h1>
+      <h1>Sprachspiel B1 – Level freischalten</h1>
       <p class="sub">Du kommst nur weiter, wenn deine Lösung korrekt ist. Jede Tür öffnet sich erst bei „richtig“.</p>
 
       <div class="progressWrap">
@@ -350,23 +192,18 @@
         <small>Tipp: Bei Artikel-Aufgaben zählt nur das <b>erste Wort</b> (der/die/das).</small>
       </div>
       <div class="pill">
-        <b>Dein Ziel:</b> Öffne alle Türen bis Raum 10.<br>
-        <small>Groß/Klein ist egal. Punkt am Ende ist egal.</small>
+        <b>B1-Fokus:</b> Nebensätze (weil/dass), trennbare Verben, Modalverben, Satzbau.<br>
+        <small>Groß/Klein egal. Punkt am Ende egal.</small>
       </div>
     </div>
 
     <div class="row">
-      <!-- Left: Task -->
       <div class="card">
         <div class="cardHead">
           <div>
-            <div class="badge" id="levelBadge">🔒 Raum 1/10</div>
-            <h2 class="taskTitle" id="roomTitle">Raum 1 – Warm-up (Wort)</h2>
-            <p class="taskText" id="roomTask">
-              Aufgabe: Schreib das Wort richtig:
-              <span class="taskLine">„Guten ___“</span>
-              <small>(1 Wort)</small>
-            </p>
+            <div class="badge" id="levelBadge">🔒 Raum 1/15</div>
+            <h2 class="taskTitle" id="roomTitle">Raum 1</h2>
+            <p class="taskText" id="roomTask"></p>
           </div>
           <div class="badge" id="doorBadge">🚪 Tür: geschlossen</div>
         </div>
@@ -384,7 +221,7 @@
           <div id="status" class="status">Status: Noch nicht geprüft.</div>
 
           <div class="mini">
-            <div>🔑 Freigeschaltet: <b id="unlockedCount">1</b>/<span id="totalCount">10</span></div>
+            <div>🔑 Freigeschaltet: <b id="unlockedCount">1</b>/<span id="totalCount">15</span></div>
             <label class="toggle" title="Sound an/aus">
               <input type="checkbox" id="soundToggle" checked />
               Sound
@@ -392,12 +229,11 @@
           </div>
 
           <div class="footerNote">
-            Hinweis: Bei Aufgaben mit Lücke darfst du auch den ganzen Satz schreiben – das Spiel sucht dann das passende Wort.
+            Hinweis: Du darfst oft auch den ganzen Satz schreiben – das Spiel sucht dann die passende Lösung (je nach Aufgabe).
           </div>
         </div>
       </div>
 
-      <!-- Right: Map -->
       <div class="card">
         <div class="map">
           <h2>🗺️ Karte: Türen & Räume</h2>
@@ -412,99 +248,157 @@
 
 <script>
 (function(){
+  // --- B1: 15 Räume, spiel-tauglich (eindeutige Lösungen)
   const rooms = [
-    // A2 verbindlich (1–5)
+    // 1) Wortschatz (eindeutig)
     {
       id: 1,
-      title: "Raum 1 – Warm-up (Wort)",
-      taskHtml: 'Aufgabe: Schreib das Wort richtig:<span class="taskLine">„Guten ___“</span><small>(1 Wort)</small>',
-      solution: "morgen",
-      type: "word",
+      title: "Raum 1 – Redewendung",
+      taskHtml: 'Aufgabe: Ergänze das fehlende Wort:<span class="taskLine">„Ich habe heute keine ___.“</span><small>(1 Wort)</small>',
+      solution: "zeit",
+      type: "missing-word-anywhere",
       okHint: "Sehr gut. Tür geöffnet!",
-      badHint: "Tipp: Man sagt „Guten Morgen“."
+      badHint: "Tipp: „keine Zeit“"
     },
+    // 2) Artikel (erstes Wort)
     {
       id: 2,
       title: "Raum 2 – Artikel (nur erstes Wort zählt!)",
-      taskHtml: 'Aufgabe:<span class="taskLine">„___ Wohnung ist groß.“</span><small>Regel: Bei Artikel-Aufgaben zählt nur das erste Wort (der/die/das).</small>',
-      solution: "die",
+      taskHtml: 'Aufgabe:<span class="taskLine">„___ Termin ist schon morgen.“</span><small>Regel: Nur erstes Wort zählen (der/die/das).</small>',
+      solution: "der",
       type: "article-firstword",
-      okHint: "Richtig: die. Tür geöffnet!",
-      badHint: "Tipp: „Wohnung“ ist feminin → die."
+      okHint: "Richtig: der. Tür geöffnet!",
+      badHint: "Tipp: „der Termin“ (maskulin)."
     },
+    // 3) Trennbares Verb
     {
       id: 3,
-      title: "Raum 3 – Verb im Präsens",
-      taskHtml: 'Aufgabe:<span class="taskLine">„Ich ___ in Kampot.“</span><small>(1 Wort)</small>',
-      solution: "wohne",
+      title: "Raum 3 – Trennbares Verb",
+      taskHtml: 'Aufgabe: Ergänze das Verbteil:<span class="taskLine">„Ich rufe dich später ___.“</span><small>(1 Wort)</small>',
+      solution: "an",
       type: "missing-word-anywhere",
       okHint: "Richtig. Tür geöffnet!",
-      badHint: "Tipp: „Ich wohne in …“"
+      badHint: "Tipp: „anrufen“ → „rufe … an“"
     },
+    // 4) Nebensatz weil (Konjunktion)
     {
       id: 4,
-      title: "Raum 4 – Perfekt (Hilfsverb)",
-      taskHtml: 'Aufgabe:<span class="taskLine">„Gestern ___ ich gearbeitet.“</span><small>(1 Wort)</small>',
-      solution: "habe",
+      title: "Raum 4 – Nebensatz (weil)",
+      taskHtml: 'Aufgabe: Ergänze die Konjunktion:<span class="taskLine">„Ich bleibe zu Hause, ___ ich krank bin.“</span><small>(1 Wort)</small>',
+      solution: "weil",
       type: "missing-word-anywhere",
       okHint: "Sehr gut. Tür geöffnet!",
-      badHint: "Tipp: „ich habe gearbeitet“"
+      badHint: "Tipp: Begründung = „weil“."
     },
+    // 5) Satzstellung Nebensatz (Verb am Ende) – eindeutig
     {
       id: 5,
-      title: "Raum 5 – Satzstellung",
-      taskHtml: 'Aufgabe: Ordne die Wörter zu einem Satz:<span class="taskLine">„Morgen / ich / einkaufen / gehen“</span><small>Ziel: „Morgen gehe ich einkaufen.“ (Punkt optional)</small>',
-      solution: "morgen gehe ich einkaufen",
-      type: "sentence",
-      okHint: "Perfekt. Tür geöffnet!",
-      badHint: "Tipp: Verb an Position 2: „Morgen gehe ich …“"
+      title: "Raum 5 – Satzbau (Verb am Ende)",
+      taskHtml: 'Aufgabe: Bilde einen Satz (Punkt optional):<span class="taskLine">„weil / ich / morgen / arbeiten / müssen“</span><small>Ziel: „…, weil ich morgen arbeiten muss.“</small>',
+      solution: "weil ich morgen arbeiten muss",
+      type: "sentence-contains",
+      okHint: "Top. Tür geöffnet!",
+      badHint: "Tipp: Im weil-Satz steht das Verb am Ende: „… arbeiten muss“."
     },
-
-    // Zusätzliche A2-Räume (6–10) – spiel-tauglich, eindeutige Lösungen
+    // 6) dass-Satz (Konjunktion)
     {
       id: 6,
-      title: "Raum 6 – Artikel (nur erstes Wort zählt!)",
-      taskHtml: 'Aufgabe:<span class="taskLine">„___ Auto ist neu.“</span><small>Regel: Nur erstes Wort zählen (der/die/das).</small>',
-      solution: "das",
-      type: "article-firstword",
-      okHint: "Richtig: das. Tür geöffnet!",
-      badHint: "Tipp: „Auto“ ist neutral → das."
+      title: "Raum 6 – Nebensatz (dass)",
+      taskHtml: 'Aufgabe: Ergänze die Konjunktion:<span class="taskLine">„Ich glaube, ___ er heute kommt.“</span><small>(1 Wort)</small>',
+      solution: "dass",
+      type: "missing-word-anywhere",
+      okHint: "Richtig. Tür geöffnet!",
+      badHint: "Tipp: „Ich glaube, dass …“"
     },
+    // 7) Modalverb
     {
       id: 7,
-      title: "Raum 7 – Präposition",
-      taskHtml: 'Aufgabe: Ergänze die Präposition:<span class="taskLine">„Ich gehe ___ die Schule.“</span><small>(1 Wort)</small>',
-      solution: "in",
-      type: "missing-word-anywhere",
-      okHint: "Richtig. Tür geöffnet!",
-      badHint: "Tipp: „in die Schule“"
-    },
-    {
-      id: 8,
-      title: "Raum 8 – Trennbares Verb",
-      taskHtml: 'Aufgabe: Ergänze das Verb (1 Wort):<span class="taskLine">„Ich stehe um sieben Uhr ___.“</span><small>(1 Wort)</small>',
-      solution: "auf",
+      title: "Raum 7 – Modalverb",
+      taskHtml: 'Aufgabe: Ergänze das Modalverb:<span class="taskLine">„Du ___ hier nicht rauchen.“</span><small>(1 Wort)</small>',
+      solution: "darfst",
       type: "missing-word-anywhere",
       okHint: "Sehr gut. Tür geöffnet!",
-      badHint: "Tipp: „aufstehen“ → „stehe … auf“"
+      badHint: "Tipp: Verbot/Regel = „du darfst nicht …“"
     },
+    // 8) Präteritum (sein) – eindeutig
     {
-      id: 9,
-      title: "Raum 9 – Modalverb",
-      taskHtml: 'Aufgabe: Ergänze das Modalverb:<span class="taskLine">„Ich ___ heute nicht kommen.“</span><small>(1 Wort)</small>',
-      solution: "kann",
+      id: 8,
+      title: "Raum 8 – Präteritum",
+      taskHtml: 'Aufgabe: Ergänze das Verb:<span class="taskLine">„Gestern ___ ich sehr müde.“</span><small>(1 Wort)</small>',
+      solution: "war",
       type: "missing-word-anywhere",
       okHint: "Richtig. Tür geöffnet!",
-      badHint: "Tipp: „Ich kann heute nicht kommen.“"
+      badHint: "Tipp: Präteritum von „sein“ = „war“."
     },
+    // 9) Perfekt Hilfsverb (sein) – eindeutig
     {
-      id: 10,
-      title: "Raum 10 – Finale: Perfekt (sein/haben)",
-      taskHtml: 'Aufgabe: Ergänze das Hilfsverb:<span class="taskLine">„Wir ___ gestern nach Phnom Penh gefahren.“</span><small>(1 Wort)</small>',
+      id: 9,
+      title: "Raum 9 – Perfekt (sein/haben)",
+      taskHtml: 'Aufgabe: Ergänze das Hilfsverb:<span class="taskLine">„Wir ___ spät nach Hause gekommen.“</span><small>(1 Wort)</small>',
       solution: "sind",
       type: "missing-word-anywhere",
-      okHint: "Stark! Du hast alle Türen geöffnet. 🎉",
-      badHint: "Tipp: fahren/gehen → meistens „sein“."
+      okHint: "Richtig. Tür geöffnet!",
+      badHint: "Tipp: „kommen“ → meist „sein“."
+    },
+    // 10) Präposition mit Dativ – eindeutig
+    {
+      id: 10,
+      title: "Raum 10 – Präposition",
+      taskHtml: 'Aufgabe: Ergänze die Präposition:<span class="taskLine">„Ich fahre ___ dem Bus.“</span><small>(1 Wort)</small>',
+      solution: "mit",
+      type: "missing-word-anywhere",
+      okHint: "Sehr gut. Tür geöffnet!",
+      badHint: "Tipp: „mit dem Bus“."
+    },
+    // 11) Relativpronomen (B1 einfach, eindeutig durch Genus) – "der" für Mann
+    {
+      id: 11,
+      title: "Raum 11 – Relativsatz",
+      taskHtml: 'Aufgabe: Ergänze das Relativpronomen:<span class="taskLine">„Das ist der Mann, ___ neben mir wohnt.“</span><small>(1 Wort)</small>',
+      solution: "der",
+      type: "missing-word-anywhere",
+      okHint: "Richtig. Tür geöffnet!",
+      badHint: "Tipp: „der Mann, der …“"
+    },
+    // 12) W-Frage (Wohin/Wo) – eindeutig: "Wohin"
+    {
+      id: 12,
+      title: "Raum 12 – Fragewort",
+      taskHtml: 'Aufgabe: Ergänze das richtige Fragewort:<span class="taskLine">„___ gehst du jetzt?“ (Antwort: in die Küche)</span><small>(1 Wort)</small>',
+      solution: "wohin",
+      type: "word",
+      okHint: "Richtig. Tür geöffnet!",
+      badHint: "Tipp: Richtung/Ziel = „Wohin?“"
+    },
+    // 13) Konnektor obwohl – eindeutig
+    {
+      id: 13,
+      title: "Raum 13 – Konnektor (obwohl)",
+      taskHtml: 'Aufgabe: Ergänze die Konjunktion:<span class="taskLine">„Ich gehe spazieren, ___ es regnet.“</span><small>(1 Wort)</small>',
+      solution: "obwohl",
+      type: "missing-word-anywhere",
+      okHint: "Sehr gut. Tür geöffnet!",
+      badHint: "Tipp: Gegensatz = „obwohl“."
+    },
+    // 14) Satzstellung: Verb 2. Position – Ziel eindeutig
+    {
+      id: 14,
+      title: "Raum 14 – Satzstellung (Verb 2)",
+      taskHtml: 'Aufgabe: Ordne die Wörter zu einem Satz:<span class="taskLine">„Heute / im Büro / ich / bleiben“</span><small>Ziel: „Heute bleibe ich im Büro.“</small>',
+      solution: "heute bleibe ich im büro",
+      type: "sentence",
+      okHint: "Perfekt. Tür geöffnet!",
+      badHint: "Tipp: Verb an Position 2: „Heute bleibe …“"
+    },
+    // 15) Finale: indirekte Bitte (B1) – eindeutig
+    {
+      id: 15,
+      title: "Raum 15 – Finale: Höfliche Bitte",
+      taskHtml: 'Aufgabe: Ergänze das fehlende Wort:<span class="taskLine">„Könnten Sie mir bitte ___ helfen?“</span><small>(1 Wort)</small>',
+      solution: "kurz",
+      type: "missing-word-anywhere",
+      okHint: "Stark! Du hast alle Räume geschafft. 🎉",
+      badHint: "Tipp: Üblich ist „bitte kurz helfen“."
     }
   ];
 
@@ -530,11 +424,11 @@
 
   // --- State
   let currentIndex = 0;
-  let unlockedMaxIndex = 0; // last unlocked index
+  let unlockedMaxIndex = 0;
   let lastResultCorrect = false;
   let xp = 0;
 
-  // --- Helpers: sound (offline)
+  // --- Sound (offline)
   function beepSuccess(){
     if(!soundToggleEl.checked) return;
     try{
@@ -556,7 +450,6 @@
   }
 
   function normalizeGeneral(s){
-    // lower, trim, collapse spaces, remove trailing punctuation (.,!?:;)
     let x = (s ?? "").trim().toLowerCase();
     x = x.replace(/\s+/g, " ");
     x = x.replace(/[.!?:;]+$/g, "");
@@ -571,9 +464,21 @@
     const x = normalizeGeneral(input);
     const w = normalizeGeneral(word);
     if(!x || !w) return false;
-    // word boundary-ish: split by spaces
     const parts = x.split(" ");
     return parts.includes(w);
+  }
+
+  // sentence that must match exactly (but tolerant re: case/punctuation)
+  function isSentenceEqual(input, expected){
+    return normalizeGeneral(input) === normalizeGeneral(expected);
+  }
+
+  // sentence-contains: expected clause must appear somewhere (e.g., because-sentence)
+  function isSentenceContains(input, expectedClause){
+    const x = normalizeGeneral(input);
+    const clause = normalizeGeneral(expectedClause);
+    if(!x || !clause) return false;
+    return x.includes(clause);
   }
 
   function isCorrect(room, input){
@@ -583,25 +488,20 @@
     if(t === "article-firstword"){
       return firstWord(input) === normalizeGeneral(expected);
     }
-
     if(t === "word"){
-      // accept if input contains expected word OR equals it (case-insensitive)
       const norm = normalizeGeneral(input);
       const exp = normalizeGeneral(expected);
       return norm === exp || containsWord(input, expected);
     }
-
     if(t === "missing-word-anywhere"){
-      // accept if they wrote only the word OR full sentence containing it
       return containsWord(input, expected) || normalizeGeneral(input) === normalizeGeneral(expected);
     }
-
     if(t === "sentence"){
-      // strict-ish, but tolerant: case + final punctuation
-      return normalizeGeneral(input) === normalizeGeneral(expected);
+      return isSentenceEqual(input, expected);
     }
-
-    // fallback
+    if(t === "sentence-contains"){
+      return isSentenceContains(input, expected);
+    }
     return normalizeGeneral(input) === normalizeGeneral(expected);
   }
 
@@ -610,7 +510,6 @@
     if(kind === "ok") statusEl.classList.add("ok");
     if(kind === "bad") statusEl.classList.add("bad");
     statusEl.textContent = text;
-    // tiny pop animation
     statusEl.classList.add("pop");
     setTimeout(()=>statusEl.classList.remove("pop"), 220);
   }
@@ -639,14 +538,11 @@
       if(locked) btn.classList.add("locked");
       if(isCurrent) btn.classList.add("current");
 
-      const isOpen = idx < currentIndex ? true : (idx === currentIndex ? lastResultCorrect : idx <= unlockedMaxIndex && idx < currentIndex);
-      // Visual door: locked or open/closed depending
       let ico = "🔒";
-      if(idx <= unlockedMaxIndex){
-        ico = (idx < currentIndex) ? "✅" : "🚪";
+      if(!locked){
+        ico = (idx < unlockedMaxIndex) ? "✅" : "🚪";
       }
-      if(locked) ico = "🔒";
-      if(idx === unlockedMaxIndex && idx === currentIndex && lastResultCorrect) ico = "✅";
+      if(idx === currentIndex && lastResultCorrect) ico = "✅";
 
       btn.innerHTML = `<div class="ico">${ico}</div><div>Raum ${r.id}</div>`;
       btn.disabled = locked;
@@ -654,11 +550,11 @@
       btn.addEventListener("click", () => {
         if(locked) return;
         currentIndex = idx;
-        // When jumping back, door should be considered open only if that room already passed.
-        lastResultCorrect = idx < unlockedMaxIndex; // if already passed, treat as open
-        nextBtn.disabled = !lastResultCorrect;
+        // completed rooms are treated as open
+        lastResultCorrect = idx < unlockedMaxIndex;
+        nextBtn.disabled = !lastResultCorrect && idx === unlockedMaxIndex;
         doorBadgeEl.textContent = doorStateText(lastResultCorrect);
-        setStatus("","Status: Raum gewählt. Klicke „Prüfen“.");
+        setStatus("", "Status: Raum gewählt. Klicke „Prüfen“.");
         answerEl.value = "";
         loadRoom();
       });
@@ -673,7 +569,6 @@
     roomTitleEl.textContent = room.title;
     roomTaskEl.innerHTML = room.taskHtml;
 
-    // If revisiting a completed room: allow Next immediately
     const completed = currentIndex < unlockedMaxIndex;
     lastResultCorrect = completed;
     nextBtn.disabled = !completed;
@@ -681,12 +576,9 @@
     doorBadgeEl.textContent = doorStateText(completed);
     updateProgress();
     renderMap();
-
-    // Focus
     setTimeout(()=>answerEl.focus(), 30);
   }
 
-  // --- Events
   clearBtn.addEventListener("click", () => {
     answerEl.value = "";
     answerEl.focus();
@@ -724,7 +616,6 @@
       nextBtn.disabled = true;
       doorBadgeEl.textContent = doorStateText(false);
 
-      // learner-friendly extra hint for article rooms:
       if(room.type === "article-firstword"){
         const fw = firstWord(input);
         if(fw === "der" || fw === "die" || fw === "das"){
@@ -741,7 +632,6 @@
   nextBtn.addEventListener("click", () => {
     if(nextBtn.disabled) return;
 
-    // If final room:
     if(currentIndex >= rooms.length - 1){
       setStatus("ok", "🎉 Fertig! Du hast alle Räume geschafft. Du kannst über die Karte Räume wiederholen.");
       renderMap();
@@ -749,15 +639,13 @@
     }
 
     currentIndex++;
-    // entering a newly unlocked room: door closed until correct
-    lastResultCorrect = currentIndex < unlockedMaxIndex; // if already passed earlier
+    lastResultCorrect = currentIndex < unlockedMaxIndex;
     nextBtn.disabled = !lastResultCorrect;
     answerEl.value = "";
     setStatus("", "Status: Neuer Raum. Löse die Aufgabe, um die Tür zu öffnen.");
     loadRoom();
   });
 
-  // Enter key: check (Ctrl+Enter for textarea)
   answerEl.addEventListener("keydown", (e) => {
     if(e.key === "Enter" && (e.ctrlKey || e.metaKey)){
       e.preventDefault();
@@ -765,7 +653,6 @@
     }
   });
 
-  // Init
   setStatus("", "Status: Starte in Raum 1. Klicke „Prüfen“.");
   loadRoom();
 })();
